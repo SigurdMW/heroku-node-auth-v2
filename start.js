@@ -8,12 +8,13 @@ if (!isProduction) {
 }
 const express = require("express")
 const https = require("https")
-const { MemoryStore } = require("express-session")
 const {
 	setupWebAppAuth,
 	generateCertificate,
 	VERACITY_API_SCOPES
 } = require("@veracity/node-auth")
+const session = require("express-session")
+const MemoryStore = require("memorystore")(session)
 
 // Create our express instance
 const app = express()
@@ -34,7 +35,9 @@ const { refreshTokenMiddleware } = setupWebAppAuth({
 	},
 	session: {
 		secret: "ce4dd9d9-cac3-4728-a7d7-d3e6157a06d9", // Replace this with your own secret
-		store: new MemoryStore()
+		store: new MemoryStore({
+			checkPeriod: 86400000 // prune expired entries every 24h
+		})
 	}
 })
 
