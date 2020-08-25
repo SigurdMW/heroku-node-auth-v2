@@ -27,8 +27,7 @@ const { refreshTokenMiddleware } = setupWebAppAuth({
 	strategy: { // Fill these in with values from your Application Credential
 		clientId: CLIENT_ID,
 		clientSecret: CLIENT_SECRET,
-		replyUrl: REPLY_URL,
-		apiScopes: [VERACITY_API_SCOPES.services] // We want a Services API access token.
+		replyUrl: REPLY_URL
 	},
 	onLoginComplete: (req, res) => {
 		res.redirect("/user")
