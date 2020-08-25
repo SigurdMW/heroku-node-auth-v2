@@ -1,12 +1,23 @@
 {
-  "name": "heroku-node-auth-v2",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+	"name": "heroku-node-auth-v2",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node ./start.js",
+		"start:prod": "node ./prod.js"
+	},
+	"dependencies": {
+		"@veracity/node-auth": "^2.0.5",
+		"body-parser": "^1.19.0",
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1",
+		"express-session": "^1.16.2",
+		"node-forge": "^0.9.1",
+		"passport": "^0.4.0"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
 }
